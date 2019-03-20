@@ -71,21 +71,21 @@ export const asyncRouterMap = [
   {
     path: '/example',
     component: Layout,
-    redirect: '/example/table',
+    redirect: 'noredirect',
     name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
+    meta: { title: 'example', icon: 'example' },
     children: [
       {
         path: 'table',
         name: 'Table',
         component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
+        meta: { title: 'table', icon: 'table' }
       },
       {
         path: 'tree',
         name: 'Tree',
         component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree', roles: ['admin'] }
+        meta: { title: 'tree', icon: 'tree', roles: ['admin'] }
       }
     ]
   },
@@ -98,7 +98,7 @@ export const asyncRouterMap = [
         path: 'index',
         name: 'Form',
         component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
+        meta: { title: 'form', icon: 'form' }
       }
     ]
   },
@@ -106,10 +106,10 @@ export const asyncRouterMap = [
   {
     path: '/nested',
     component: Layout,
-    redirect: '/nested/menu1',
+    redirect: 'noredirect',
     name: 'Nested',
     meta: {
-      title: 'Nested',
+      title: 'moreMenu',
       icon: 'nested'
     },
     children: [
@@ -117,39 +117,19 @@ export const asyncRouterMap = [
         path: 'menu1',
         component: () => import('@/views/nested/menu1/index'), // Parent router-view
         name: 'Menu1',
-        meta: { title: 'Menu1' },
+        meta: { title: 'menu1' },
         children: [
           {
-            path: 'menu1-1',
+            path: 'menu11',
             component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
+            name: 'Menu11',
+            meta: { title: 'menu11' }
           },
           {
-            path: 'menu1-2',
+            path: 'menu12',
             component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: { title: 'Menu1-2' },
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: { title: 'Menu1-3' }
+            name: 'Menu12',
+            meta: { title: 'menu12' }
           }
         ]
       },
@@ -161,14 +141,13 @@ export const asyncRouterMap = [
       }
     ]
   },
-
   {
     path: 'external-link',
     component: Layout,
     children: [
       {
         path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' }
+        meta: { title: 'externalLink', icon: 'link' }
       }
     ]
   },

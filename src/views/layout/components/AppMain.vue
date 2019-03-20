@@ -1,7 +1,6 @@
 <template>
   <section class="app-main">
     <transition name="fade-transform" mode="out-in">
-      <!--<router-view/> -->
       <keep-alive :include="cachedViews">
         <router-view :key="key" />
       </keep-alive>
@@ -25,9 +24,11 @@ export default {
 
 <style scoped>
 .app-main {
-  /*50 = navbar  */
-  min-height: calc(100vh - 50px);
+  /*84 = navbar + tags-view = 50 +34 */
+  min-height: calc(100vh - 84px);
+  width: 100%;
   position: relative;
   overflow: hidden;
 }
 </style>
+
